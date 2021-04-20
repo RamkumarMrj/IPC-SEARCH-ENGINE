@@ -22,7 +22,7 @@ def home(request):
         html_content = get_html_content(request)
         from bs4 import BeautifulSoup
         soup = BeautifulSoup(html_content, 'html.parser')
-        print(soup)
+        # print(soup)
         result = dict()
         # result['name_head'] = soup.find("div", attrs={"class": "qrShPb kno-ecr-pt PZPZlf mfMhoc hNKfZe"}).text
         result['temp_now'] = soup.find("div", attrs={"class": "BNeawe s3v9rd AP7Wnd"}).text
