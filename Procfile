@@ -1,1 +1,0 @@
-web: gunicorn ipc_panel.wsgi
