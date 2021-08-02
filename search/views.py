@@ -7,9 +7,11 @@ from .models import data
 class HomePageView(TemplateView):
     template_name = 'search/index.html'
 
+
 class SearchResultsView(ListView):
     model = data
     template_name = 'search/search_results.html'
+    
     def get_queryset(self): # new
         query = self.request.GET.get('q')
         object_list = data.objects.filter(
