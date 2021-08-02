@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ipcsearch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('search/templates/search')),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

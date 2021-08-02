@@ -1,67 +1,28 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-  <title>IPC Search Engine</title>
-
-  <!-- Meta -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="description" content="">
-  <meta name="author" content="Infosydda">
-  <link rel="shortcut icon" href="{% static 'assets/images/coderdocs-logo.svg' %}">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
-
-  <!-- FontAwesome JS-->
-  <script defer src="{% static 'assets/fontawesome/js/all.min.js' %}"></script>
-  <!-- <script defer src="assets/fontawesome/js/all.min.js"></script> -->
-
-  <!-- Plugins CSS -->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
-  <link rel="stylesheet" href="{% static 'assets/plugins/simplelightbox/simple-lightbox.min.css' %}">
-
-  <!-- Theme CSS -->
-  <link id="theme-style" rel="stylesheet" href="{% static 'assets/css/theme.css' %}">
-
-</head>
-
-<body>
-    <div class="docs-content" style="padding-bottom: 200px;">
-      <div class="container">
-        <article class="docs-article" id="section-8">
-          <header class="docs-header">
-            {% for data in object_list %}
-            <h2 class="docs-heading">Results : {{ data.chapter }} : {{ data.chapter_name }}</h2>
-          
-          </header>
-          
+{% block content %}
+  <div class="container">
+    <article class="docs-article" id="section-8">
+      
+      {% for data in object_list %}
+        
           <section class="docs-section" id="item-8-1">
-            <h3 class="section-heading">{{ data.section }} - {{ data.section_name }}</h3>
+            <h3 class="section-heading">{{ data.section }}. {{ data.section_name }}<small> [{{ data.chapter }}. {{ data.chapter_name }}]</small></h3>
             <p>{{ data.description }}</p>
           </section>
-          {% endfor %}
         
-        </article>
-      </div>
-    </div>
+      {% endfor %}
     
-  <!-- Javascript -->
-  <script src="{% static 'assets/plugins/popper.min.js' %}"></script>
-  <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
-
-  <!-- Page Specific JS -->
-  <script src="{% static 'assets/plugins/smoothscroll.min.js' %}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-  <script src="{% static 'assets/js/highlight-custom.js' %}"></script>
-  <script src="{% static 'assets/plugins/simplelightbox/simple-lightbox.min.js' %}"></script>
-  <script src="{% static 'assets/plugins/gumshoe/gumshoe.polyfills.min.js' %}"></script>
-  <script src="{% static 'assets/js/docs.js' %}"></script>
-
-</body>
-</html>
-
+    </article>
+      <section>
+        <ul>
+          <li>
+            Police Station Bail means that you can be released on from the police station after you'have been charged. This means you will be able to go home until your court hearing. You have to comply with the conditions imposed by them
+          </li>
+          <li>
+            Bail is a mechanism used to ensure that the accused is present before the court and is available for Trial. The sections 436 to 439 of the Criminal Procedure Code deal with the concept of Bail.
+          </li>
+        </ul>
+      </section>
+  </div>
+{% endblock %}
