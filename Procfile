@@ -1,1 +1,1 @@
-web: gunicorn ipc_panel.wsgi
+web: gunicorn ipcsearch.wsgi

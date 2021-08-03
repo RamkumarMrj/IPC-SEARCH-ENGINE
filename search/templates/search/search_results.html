@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <article class="docs-article" id="section-8">
+      
+      {% for data in object_list %}
+        
+          <section class="docs-section" id="item-8-1">
+            <h3 class="section-heading">{{ data.section }}. {{ data.section_name }}<small> [{{ data.chapter }}. {{ data.chapter_name }}]</small></h3>
+            <p>{{ data.description }}</p>
+          </section>
+        
+      {% endfor %}
+    
+    </article>
+      <section>
+        <ul>
+          <li>
+            Police Station Bail means that you can be released on from the police station after you'have been charged. This means you will be able to go home until your court hearing. You have to comply with the conditions imposed by them
+          </li>
+          <li>
+            Bail is a mechanism used to ensure that the accused is present before the court and is available for Trial. The sections 436 to 439 of the Criminal Procedure Code deal with the concept of Bail.
+          </li>
+        </ul>
+      </section>
+  </div>
+  
+{% endblock %}
