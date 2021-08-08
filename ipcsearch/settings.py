@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-1@jcu0nc!-a8-@upkd$j1&-(@+nmjz9b%m+7o81auwxd59uxrc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ipcfinder.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'ipcsearch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR / 'search/templates/search'],
+        'DIRS': [ str(BASE_DIR.joinpath('search/templates/search')), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,14 +120,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = BASE_DIR / 'search/templates/search/static'
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('search/templates/search/static')),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = BASE_DIR / 'search/templates/search/static'
+# STATIC_ROOT = (str(BASE_DIR.joinpath('search/templates/search/static')))
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
