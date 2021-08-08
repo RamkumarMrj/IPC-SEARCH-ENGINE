@@ -4,8 +4,14 @@ from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 from .models import data
 
+
 class HomePageView(TemplateView):
     template_name = 'search/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['content'] = data.objects.all()
+        return context
 
 
 class SearchResultsView(ListView):

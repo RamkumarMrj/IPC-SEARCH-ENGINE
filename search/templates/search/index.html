@@ -1,44 +1,64 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div id="docs-sidebar" class="docs-sidebar">
-    <nav id="docs-nav" class="docs-nav navbar">
-      
-      <ul class="section-items list-unstyled nav flex-column pb-3">
-        
-        <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-8"><span
-              class="theme-icon-holder me-2"><i class="fas fa-book-reader"></i></span>Information</a>
-        </li>
-        
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1"></a></li>
-        
-      </ul>
-    
-    </nav>
+<div id="docs-sidebar" class="docs-sidebar">
+  <nav id="docs-nav" class="docs-nav navbar">
+    <ul class="section-items list-unstyled nav flex-column pb-3">
+      {% for data in content %}
+      <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#{{ data.chapter }}. {{ data.chapter_name }}"><span
+            class="theme-icon-holder me-2"><i class="fas fa-book-reader"></i></span>{{ data.chapter }}. {{ data.chapter_name }}</a>
+      </li>
+      <li class="nav-item"><a class="nav-link scrollto" href="#{{ data.section }}. {{ data.section_name }}">{{ data.section }}. {{ data.section_name }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
 
-  </div>
-  <div class="docs-content" style="padding-bottom: 200px;">
-    <div class="container">
-      <article class="docs-article" id="section-8">
-        <header class="docs-header">
-          
-          <h1 class="docs-heading">INDIAN PENAL CODE, 1860</h1>
-          <section class="docs-intro">
-            <p>The Indian Penal Code of 1860, sub-divided into 23 chapters, comprises 511 sections. The Code starts with an introduction, provides explanations and exceptions used in it, and covers a wide range of offences.</p>
-          </section>
-        
-        </header>
-        <section class="docs-section" id="item-8-1">
-          
-          <h2 class="section-heading">Indian Penal Code</h2>
-          
-          <p>The Indian Penal Code (IPC) is the official criminal code of India. It is a comprehensive code intended to cover all substantive aspects of criminal law. The code was drafted on the recommendations of first law commission of India established in 1834 under the Charter Act of 1833 under the Chairmanship of Lord Thomas Babington Macaulay.[1][2][3] It came into force in British India during the early British Raj period in 1862. However, it did not apply automatically in the Princely states, which had their own courts and legal systems until the 1940s. The Code has since been amended several times and is now supplemented by other criminal provisions.</p>
-          
+</div>
+<!-- <div class="docs-content" style="padding-bottom: 200px;">
+  <div class="container">
+    <article class="docs-article" id="top-position">
+      <header class="docs-header">
+        <h1 class="docs-heading">INDIAN PENAL CODE, 1860</h1>
+        <section class="docs-intro">
+          <p>The Indian Penal Code of 1860, sub-divided into 23 chapters, comprises 511 sections. The Code starts with
+            an introduction, provides explanations and exceptions used in it, and covers a wide range of offences.</p>
         </section>
+      </header>
+      <section class="docs-section" id="top-point">
 
-      </article>
-    
-    </div>
+        <h2 class="section-heading">Indian Penal Code</h2>
+
+        <p>The Indian Penal Code (IPC) is the official criminal code of India. It is a comprehensive code intended to
+          cover all substantive aspects of criminal law. The code was drafted on the recommendations of first law
+          commission of India established in 1834 under the Charter Act of 1833 under the Chairmanship of Lord Thomas
+          Babington Macaulay.[1][2][3] It came into force in British India during the early British Raj period in 1862.
+          However, it did not apply automatically in the Princely states, which had their own courts and legal systems
+          until the 1940s. The Code has since been amended several times and is now supplemented by other criminal
+          provisions.</p>
+
+      </section>
+    </article>
   </div>
-    
+</div> -->
+
+<div class="docs-content" style="padding-bottom: 200px;">
+  <div class="container">
+    <article class="docs-article" id="#{{ data.chapter }}. {{ data.chapter_name }}">
+      {% for data in content %}
+      <header class="docs-header">
+        <h1 class="docs-heading">{{ data.chapter }}. {{ data.chapter_name }}</h1>
+      </header>
+      <section class="docs-section" id="{{ data.section }}. {{ data.section_name }}">
+
+        <h2 class="section-heading">{{ data.section }}. {{ data.section_name }}</h2>
+
+        <p>{{ data.description }}</p>
+
+      </section>
+      {% endfor %}
+    </article>
+  </div>
+</div>
+<p>{{ data.section_name }}</p>
+
 {% endblock %}
